@@ -1,0 +1,1087 @@
+@import "https://code.highcharts.com/css/highcharts.css";
+
+#visualisatie_lines, #visualisatie_range, #visualisatie_column {
+  height: 200px;
+  /*max-width: 800px;*/
+  min-width: 100%;
+  margin: 0;
+}
+
+#visualisatie_lines svg, #visualisatie_range svg, #visualisatie_column svg {
+  margin: 0;
+  width: 100%;
+}
+
+.highcharts-pie-series .highcharts-point {
+  stroke: #ede;
+  stroke-width: 2px;
+}
+.highcharts-pie-series .highcharts-data-label-connector {
+  stroke: silver;
+  stroke-dasharray: 2, 2;
+  stroke-width: 2px;
+}
+
+.highcharts-credits{
+  display: none !important;
+}
+
+#container_staaf{
+    min-width: 310px !important;
+    height: 400px !important;
+    margin: 0 auto !important;
+    display: none;
+}
+
+.highcharts-label{
+  background-color: red;
+  min-width:1200px !important;
+  margin-left:  -30px;
+}
+/*.highcharts-label .highcharts-tooltip{
+  background-color: red;
+}
+*/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html{
+  overflow-y: scroll;
+  min-height: 110vh;
+}
+
+html, body{
+  overflow-x: hidden;
+}
+
+/* @media screen and (max-width: 800px) {
+  html, body{
+    background-color: blue;
+  }
+ }
+ @media screen and (orientation:landscape) {
+  html, body{
+    background-color: red;
+  }
+ }*/
+
+body {
+  background-color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  color: #4B4D4B;
+  line-height: 1.5;
+}
+
+/*a {
+  color: #B5A54A;
+  transition: color 0.3s ease-in-out;
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: #91843b;
+}*/
+a, a:link {
+    color: #105CB6;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:hover {
+    color: #082e5a;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.not_active {
+    color: #4B4D4B;
+    text-decoration: none;
+    cursor: default;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.not_active:hover {
+    color: #4B4D4B;
+    text-decoration: none;
+    cursor: default;
+    -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  max-width: 100%;
+}
+
+h4{
+  font-size: 16px;
+}
+
+h5{
+  font-size: 12px;
+}
+
+p {
+  margin: 0 0 1em;
+  font-size: 0.825em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+.container {
+  /*max-width: 50em;*/
+  max-width: 65vw;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+@media screen and (max-width: 800px) {
+
+  .container {
+    max-width: 100vw;
+  }
+
+}
+
+/*@media all and (max-width: 800px) and (orientation : portrait){
+  body{
+    background-color: yellow !important;
+  }
+}*/
+
+.header {
+  background-color: white;
+  /*box-shadow: 0 1px 1px 0 rgba(50, 50, 50, 0.1);*/
+}
+
+/** _____________________________________________________________ IKNL kopje & MENU */
+
+
+.header_logo {
+    margin: 0.4em 0;
+    width: 2em;
+    height: 2em;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    /* position: fixed; */
+    margin-bottom: 0.2em;
+    background-image: url(img/iknl_logo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* position: absolute; */
+    float: left;
+    /* left: 80%; */
+    /* right: 8em; */
+    /* top: 50px; */
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    margin-top: -0.5em;
+    margin-right: 20px;
+    background-color: transparent;
+    /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); */
+}
+
+
+@media screen and (max-width: 800px) {
+
+  .header_logo {
+      right: 20px;
+      margin-top: -0.5em;
+      
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background-color: transparent;
+      box-shadow: none;
+  }
+
+}
+
+.kopje{
+  display: flex;
+}
+
+.kopje__title {
+  float: left;
+  width: 70%;
+  font-size: 12px;
+  padding: 0px;
+  height: auto;
+  margin: 1em 0;
+  margin-left: 15%;
+  /*background-color: #e5e5e5;*/
+  /*background-color: rgba(28, 183, 237, 0.5);*/
+  border-radius: .2em;
+  text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+
+  .kopje__title {
+    width: 100%;
+    margin-left: auto;
+    text-align: left;
+  }
+
+}
+
+
+.menu_container{
+  display: flex;
+}
+
+.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border:none;
+  background-color: transparent;
+  width: auto;
+  float: left;
+}
+
+.menu li {
+  float: left;
+}
+
+.menu li a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 14px;
+  text-decoration: none;
+  /*font-size: 16px;*/
+  font-size: 0.725em;
+}
+
+
+@media screen and (max-width: 800px) {
+
+  .menu li a {
+    padding: 10px 10px;
+  }
+
+}
+
+.menu li a:not(.active) {
+  /*border-bottom: 1px solid #e7e7e7;*/
+  border-bottom: 1px solid transparent;
+}
+
+.menu li a:hover:not(.active) {
+  /*border-bottom: 1px solid #e7e7e7;*/
+  border-bottom: 1px solid #cbcccb;
+}
+
+.menu li a.active {
+  color: rgba(8, 137, 181, 0.9);
+  background-color: transparent;
+  border-bottom: 1px solid rgba(8, 137, 181, 0.9);
+}
+
+.fa{
+  color: rgba(8, 137, 181, 0.9);
+}
+
+
+
+/** _____________________________________________________________ EINDE IKNL kopje & MENU */
+
+.items{
+  margin-bottom: 50px;
+}
+
+.page-title {
+  margin: 1em 0;
+  padding: 0 0 1em;
+  font-size: 1em;
+  line-height: 1.25;
+  border-bottom: 1px solid #cbcccb;
+}
+@media only screen and (min-width: 40em) {
+  .page-title {
+    font-size: 1.4em;
+  }
+}
+
+.page-text {
+  padding-bottom: 2em;
+  margin: 0 0 2em;
+  border-bottom: 1px solid #cbcccb;
+  /*font-size: 1.2em;*/
+  font-size: 0.825em;
+  display: flex;
+  flex-direction: column; 
+}
+
+.page-text.homepage {
+  padding-bottom: 2em;
+  margin: 0 0 2em;
+  border-bottom: 1px solid #cbcccb;
+  /*font-size: 1.2em;*/
+  font-size: 0.825em;
+  display: flex;
+  flex-direction: column;
+}
+
+.row:before, .row:after {
+  content: " ";
+  display: table;
+}
+.row:after {
+  clear: both;
+}
+
+
+.page-text .col33 {
+  margin-bottom: 0em;
+}
+
+.col33, .col50 .col25 {
+  margin-bottom: 2em;
+  width: 100%;
+}
+
+.col50.col_visualisatie{
+  margin-left: 50px;
+}
+
+@media only screen and (min-width: 40em) {
+
+  .page-text.homepage{
+    flex-direction: row;
+  }
+
+  .page-text{
+    flex-direction: column;
+  }
+
+  .col25 {
+    float: left;
+    width: 22%;
+    margin-right: 3%;
+  }
+  .col25.right {
+    float: right;
+  }
+  .col25:last-of-type {
+    margin-right: 0;
+  }
+
+  .col33 {
+    float: left;
+    width: 31.3333%;
+    margin-right: 3%;
+  }
+  .col33:last-of-type {
+    margin-right: 0;
+  }
+
+  .col50 {
+    float: left;
+    width: 48%;
+    margin-right: 3%;
+  }
+  .col50:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.footer {
+  padding-top: 2em;
+  border-top: 1px solid #cbcccb;
+}
+
+/* _____________________________________________________________________ Breadcrumb */
+.breadcrumb {
+  font-size: 1em;
+  padding-left: 0px;
+  margin-top: 20px;
+}
+.breadcrumb > li {
+  display: inline-block;
+  padding: 0.5em 0;
+}
+.breadcrumb > li:after {
+  content: "/";
+  display: inline-block;
+  margin: 0 0.5em 0 0.25em;
+  color: gray;
+  font-weight: 300;
+}
+
+.breadcrumb > li:last-child:after {
+  content: "";
+  display: inline-block;
+  margin: 0 0.5em 0 0.25em;
+  color: gray;
+  font-weight: 300;
+}
+
+.breadcrumb > li > a {
+  color: gray;
+}
+@media only screen and (min-width: 40em) {
+  .breadcrumb {
+    font-size: 0.825em;
+  }
+}
+
+.breadcrumb:after {
+  display: none;
+}
+@media (hover) {
+  .breadcrumb:after {
+    content: 'hover';
+  }
+}
+
+.breadcrumb > li:hover > a {
+  color: gray;
+}
+
+.breadcrumb li {
+  position: relative;
+  list-style: none;
+}
+.breadcrumb li ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  left: -9999px;
+  z-index: 2;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border-radius: .25em;
+  padding-left: 0px;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 0em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.breadcrumb li ul a {
+  display: block;
+  white-space: nowrap;
+  padding: 0.5em 1em;
+  border-bottom: 1px solid gray;
+  color: gray;
+}
+
+.breadcrumb li:hover ul li a:hover {
+  color: gray;
+}
+
+.cutsthemustard .breadcrumb__toggle:after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 0;
+  margin-left: 0.3333333333em;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid gray;
+  transition: border-color 0.3s ease-in-out;
+}
+.breadcrumb li:hover .cutsthemustard .breadcrumb__toggle:after {
+  border-top-color: white;
+}
+
+@media (hover) {
+  .breadcrumb li:hover ul,
+  .breadcrumb li:focus ul {
+    left: 0;
+  }
+}
+.breadcrumb li.is-toggled ul {
+  left: 0;
+}
+
+
+
+/* _____________________________________________________________________ EINDE Breadcrumb */
+
+
+/* ____________________________________________________________ Standaard ICHOM WHEEL    */
+
+svg{
+  float: left;
+  /*margin-left: -30px;*/
+}
+
+#cc{
+  margin-left: 40px;
+}
+
+.content{
+  text-align: left;
+  width: 50em;
+/*  margin-left: 50px;*/
+  float: left;
+
+  margin-bottom: 20px;
+  /*background-color: white;*/
+}
+
+.content h1{
+  font-size: 30px;
+  margin-left: 20px;
+  margin-bottom: 15px;
+  margin-top: 50px;
+}
+
+
+.deelcontent{
+/*  max-width: 35vw;*/
+  max-height: 382.5px;
+  width: calc(50em - 382.5px - 25px);
+  background-color: white;
+  float: left;
+  display: none;
+  margin-top: 70px;
+  padding: 20px;
+  margin-left: 20px;
+}
+
+.deelcontent p{
+  font-size: 11;
+}
+
+.ontstaanuit{
+  text-decoration: underline;
+}
+
+/*
+#donut-chart g{
+  background-color: white;
+}*/
+
+text.inner-circle {
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.arc {
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.arc:hover {
+  opacity: .85;
+}
+.arc text {
+  font-weight: 600;
+  font-size: 7px;
+  /*color: black;*/
+  color: white;
+}
+
+@media screen and (max-width: 800px) {
+
+  .content{
+    width: 100%;
+  }
+/*
+  svg {
+    float: left;
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    display: block;
+    margin: auto;
+
+    margin-left: calc(50vw - 150px - 25px);
+  }
+  */
+  .ICHOM svg {
+    float: left;
+    height: auto; 
+    width: auto;
+    object-fit: cover;
+    display: block;
+    /* margin: auto; */
+  }
+
+  .visualisatie svg {
+    float: left;
+    height: auto; 
+    width: auto;
+    object-fit: cover;
+    display: block;
+    /* margin: auto; */
+    /*margin-left: 0px;*/
+  }
+
+  .deelcontent{
+    max-height: auto;
+    width: 100%;
+    background-color: white;
+    float: left;
+    display: none;
+    margin-top: 0px; 
+    padding: 0px; 
+    margin-left: 0px;  
+  }
+
+  .arc text {
+    font-weight: 600;
+    font-size: 6px;
+    /*color: black;*/
+    color: white;
+  }
+
+  text.inner-circle {
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+}
+
+
+/* ____________________________________________________________ EINDE standaard ICHOM WHEEL  */
+
+
+/* ____________________________________________________________ ICHOM WHEEL vergelijken  */
+
+svg{
+  float: left;
+}
+
+.donut-chart-vergelijken{
+  margin-left: -30px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+
+.vergelijken{
+  width: 75vw !important;
+}
+
+@media screen and (max-width: 800px) {
+  .vergelijken{
+    width: 100% !important;
+  }
+
+}
+
+.content-vergelijken{
+  text-align: left;
+  /*width: 50em;*/
+  margin-left: 0px;
+  float: left;
+
+  margin-bottom: 20px;
+  /*background-color: white;*/
+}
+
+.content-vergelijken h1{
+  font-size: 30px;
+  margin-left: 20px;
+  margin-bottom: 15px;
+  margin-top: 50px;
+}
+
+
+.deelcontent-vergelijken{
+/*  max-width: 35vw;*/
+  max-height: 382.5px;
+  width: calc(50em - 382.5px);
+  background-color: white;
+  float: left;
+  display: none;
+  margin-top: 70px;
+  padding: 20px;
+  margin-left: 20px;
+}
+
+.deelcontent-vergelijken p{
+  font-size: 11;
+}
+
+text.inner-circle {
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.arc {
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.arc:hover {
+  opacity: .85;
+}
+.arc text {
+  font-weight: 600;
+  font-size: 7px;
+  /*color: black;*/
+  color: white;
+}
+
+@media screen and (max-width: 800px) {
+/*  html, body{
+    padding: 0;
+    margin: 0;
+  }
+  body{
+    overflow: hidden;
+  }*/
+
+  #donut-chart-vergelijken{ 
+    margin-left: 0px;
+    float: left;
+    height: auto; 
+    width: auto;
+    object-fit: cover;
+    display: block;
+
+    margin-left: calc(50vw - 150px - 25px);
+  }
+
+  .content-vergelijken{
+    width: 100%;
+  }
+
+  .ICHOM svg {
+    float: left;
+    height: auto; 
+    width: auto;
+    object-fit: cover;
+    display: block;
+    /* margin: auto; */
+  }
+
+  .visualisatie svg {
+    float: left;
+    height: auto; 
+    width: auto;
+    object-fit: cover;
+    display: block;
+    /* margin: auto; */
+    margin-left: 0px;
+  }
+
+  .deelcontent-vergelijken{
+    max-height: auto;
+    width: 100%;
+    background-color: white;
+    float: left;
+    display: none;
+    margin-top: 0px; 
+    padding: 0px; 
+    margin-left: 0px;  
+  }
+
+  .arc text {
+    font-weight: 600;
+    font-size: 6px;
+    /*color: black;*/
+    color: white;
+  }
+
+  text.inner-circle {
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+}
+
+
+/* ____________________________________________________________ EINDE ICHOM WHEEL vergelijken  */
+
+/* ____________________________________________________________ Degree of health  */
+
+
+.Degree_of_health{
+  width: 75vw !important;
+  /*width: auto;*/
+}
+
+@media screen and (max-width: 800px) {
+
+  .Degree_of_health{
+    width: 100% !important;
+  }
+
+}
+
+
+#vertical_menu {
+  display: block;
+  position: absolute;
+  padding-top: 70px;
+  padding-bottom: 50px;
+  font-size: 10px;
+  margin: 50px;
+  width: 15vw;
+  left: 0;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 10px;
+}
+
+@media screen and (max-width: 800px) {
+
+  #vertical_menu {
+    display: none;
+  }
+
+}
+
+#vertical_menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#vertical_menu ul li {
+  /* Sub Menu */
+}
+#vertical_menu ul li a {
+  display: block;
+  padding: 10px 15px;
+  color: gray;
+  text-decoration: none;
+  -webkit-transition: 0.2s linear;
+  -moz-transition: 0.2s linear;
+  -ms-transition: 0.2s linear;
+  -o-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+#vertical_menu ul li a:hover {
+  color: #545454;
+}
+#vertical_menu ul li a .fa {
+  width: 16px;
+  text-align: center;
+  margin-right: 5px;
+  float:right;
+}
+#vertical_menu ul ul {
+  /*background-color:#ebebeb;*/
+}
+#vertical_menu ul li ul li a {
+  /*background: #f8f8f8;*/
+  border-left: 1px solid transparent;
+  padding: 10px 20px;
+  color: gray;
+}
+#vertical_menu ul li ul li a:hover {
+  /*background: #ebebeb;*/
+  /*border-left: 1px solid #e7e7e7;*/
+  border-left: 1px solid #cccccc;
+  color: #545454;
+}
+#vertical_menu ul li ul li a.active {
+  border-left: 1px solid rgba(8, 137, 181, 1) !important;
+}
+
+/* ____________________________________________________________ EINDE degree of health  */
+
+/* ____________________________________________________________ Uitklapbare content  */
+
+.collaps {
+  background-color: #79bad0;
+  color: black;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+}
+
+.collaps h5{
+  padding: 0px;
+  margin: 0px;
+  width: 80%;
+  float: left;
+  font-weight: 200;
+}
+
+
+@media screen and (max-width: 800px) {
+
+  .collaps h5{
+    font-weight: 600;
+    font-size: 10px;
+  }
+
+}
+
+.collaps.active, .collaps:hover {
+  background-color: #1cb7ed;
+}
+
+.collaps:after {
+  content: '\002B';
+  color: black;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.collaps.active:after {
+  content: "\2212";
+}
+
+.collaps_content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+
+.collaps_content .Q {
+  font-size: 11px;
+}
+
+.collaps_content p{
+  font-size: 11px;
+  padding-top: 18px;
+  margin: 0 0 18px;
+}
+
+
+/* ____________________________________________________________ EINDE Uitklapbare content  */
+
+
+/* ____________________________________________________________ ICHOM Filter  */
+
+.ichom_filter{
+  padding: 20px;
+  padding-top: 40px;
+  position: absolute;
+  background-color: white;
+  max-width: 65vw;
+  width: 100%;
+  z-index: 100;
+  box-shadow: rgba(8, 137, 181,0.2) 4px 4px 8px;
+}
+
+.ichom_filter .resultaat{
+  width: 60vw;
+  float: right;
+  right: 0;
+  text-align: right;
+  padding-top: 20px;
+}
+
+.ichom_filter .resultaat a{
+  -webkit-tap-highlight-color: transparent;    
+  color: rgb(8, 137, 181);
+  text-decoration: none;
+  font-size: 14px;
+  font-size: 0.725em;
+  font-weight: bold;
+}
+
+.ichom_filter .col25 p{
+  display: block;
+  color: rgb(8, 137, 181);
+  text-align: left;
+  text-decoration: none;
+  font-size: 14px; 
+  font-size: 0.725em;
+  font-weight: bold;
+}
+
+/*.ichom_filter .col25{
+  border-right: 1px solid rgba(8, 137, 181, 0.9);
+}
+*/
+
+/* The container */
+.radio_container, .check_container, .check_container2 {
+  display: block;
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 0.725em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.radio_container .checkmark {
+  position: absolute;
+  top: 7;
+  left: 0;
+  height: 8px;
+  width: 8px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio_container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio_container input:checked ~ .checkmark {
+  background-color: rgb(8, 137, 181);
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio_container input:checked {
+  display: block;
+}
+
+
+/* Hide the browser's default checkbox */
+.check_container2 input, .check_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.check_container2 .checkmark, .check_container .checkmark {
+  position: absolute;
+  top: 7;
+  left: 0;
+  height: 8px;
+  width: 8px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.check_container2:hover input ~ .checkmark, .check_container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.check_container2 input:checked ~ .checkmark, .check_container input:checked ~ .checkmark {
+  background-color: rgb(8, 137, 181);
+}
