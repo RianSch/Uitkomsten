@@ -32,7 +32,7 @@ Je kunt de code aanpassen door gebruik te maken van een ontwikkelingshulpmiddel,
 * [Jquery](https://jquery.com/) - Library om op een makkelijkere manier JavaScript te schijven.
 
 
-## Authors
+## Auteur
 
 * **Rian Schobers** - *Initial work* - [Github - Rian Schobers](https://github.com/RianSch)
 
